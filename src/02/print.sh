@@ -6,7 +6,7 @@ DATE=`date | awk '{print  $2 " " $3 " " $4 " " $5}'`
 UPTIME=`uptime -p`
 UPTIME_SEC=`cat /proc/uptime | awk '{print $1 " sec"}'`
 IP=`ip a | awk '$1=="inet"&&$2!="127.0.0.1/8" {print $2}'   `
-# MASK= сетевая маска любого из сетевых интерфейсов в виде: xxx.xxx.xxx.xxx
+# MASK= сетевая маска любого из сетевых интерфейсов в виде: xxx.xxx.xxx.xxx `sudo apt install ipcalc``
 # GATEWAY= ip шлюза по умолчанию
 # RAM_TOTAL= размер оперативной памяти в Гб c точностью три знака после запятой в виде: 3.125 GB
 # RAM_USED= размер используемой памяти в Гб c точностью три знака после запятой
