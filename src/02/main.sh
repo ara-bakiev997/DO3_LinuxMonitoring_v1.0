@@ -2,6 +2,8 @@
 
 if [[ $# == 0 ]] 
     then 
+    chmod +x inst_supp.sh
+    bash inst_supp.sh
     chmod +x print.sh
     bash print.sh
     chmod +x save.sh
