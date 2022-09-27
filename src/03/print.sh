@@ -6,52 +6,7 @@
 # Параметр 3 - это фон значений (после знака '=')
 # Параметр 4 - это цвет шрифта значений (после знака '=')
 
-# Цвет текста:
-WHITE='\033[37m'		#	${WHITE}		# белый цвет знаков
-RED='\033[31m'			#	${RED}			# красный цвет знаков
-GREEN='\033[32m'		#	${GREEN}		# зелёный цвет знаков
-BLUE='\033[34m'			#	${BLUE}			# синий цвет знаков
-PURPLE='\033[0;35m'     #	${PURPLE}		# пурпурный цвет знаков
-BLACK='\033[30m'		#	${BLACK}		# чёрный цвет знаков
-
-# Цвет фона
-BGWHITE='\033[47m'		#	${BGWHITE}
-BGRED='\033[41m'		#	${BGRED}
-BGGREEN='\033[42m'		#	${BGGREEN}
-BGBLUE='\033[44m'		#	${BGBLUE}
-BGPURPLE='\033[1;35m'	#	${BGPURPLE}
-BGBLACK='\033[40m'		#	${BGBLACK}
-
-
-if [[ $1 -eq 1 ]]
-then 
-PARAMETER_1=$WHITE
-fi
-
-if [[ $1 -eq 2 ]]
-then 
-PARAMETER_1=$RED
-fi
-
-if [[ $1 -eq 3 ]]
-then 
-PARAMETER_1=$GREEN
-fi
-
-if [[ $1 -eq 4 ]]
-then 
-PARAMETER_1=$BLUE
-fi
-
-if [[ $1 -eq 5 ]]
-then 
-PARAMETER_1=$PURPLE
-fi
-
-if [[ $1 -eq 6 ]]
-then 
-PARAMETER_1=$BLACK
-fi
+source set_color_value.sh $1 $2 $3 $4
 
 TIMEZONE=`timedatectl | awk '$2=="zone:" {print $3 " " $4 $5}'`
 OS=`uname -mrs`
@@ -68,19 +23,19 @@ SPACE_ROOT=`df -l /root/ | awk '$6=="/" {print $2/1024 " Mb"}'` #размер р
 SPACE_ROOT_USED=`df -l /root/ | awk '$6=="/" {print $3/1024 " Mb"}'` #размер занятого пространства рутового раздела в Mб с точностью два знака после запятой
 SPACE_ROOT_FREE=`df -l /root/ | awk '$6=="/" {print $4/1024 " Mb"}'` #размер свободного пространства рутового раздела в Mб с точностью два знака после запятой
 
-echo -e "${PARAMETER_1} HOSTNAME = $HOSTNAME"
-echo -e "${PARAMETER_1} TIMEZONE = $TIMEZONE"
-echo -e "${PARAMETER_1} USER = $USER"
-echo -e "${PARAMETER_1} OS = $OS"
-echo -e "${PARAMETER_1} DATE = $DATE"
-echo -e "${PARAMETER_1} UPTIME = $UPTIME"
-echo -e "${PARAMETER_1} UPTIME_SEC = $UPTIME_SEC"
-echo -e "${PARAMETER_1} IP = $IP"
-echo -e "${PARAMETER_1} MASK = $MASK"
-echo -e "${PARAMETER_1} GATEWAY = $GATEWAY"
-echo -e "${PARAMETER_1} RAM_TOTAL = $RAM_TOTAL"
-echo -e "${PARAMETER_1} RAM_USED = $RAM_USED"
-echo -e "${PARAMETER_1} RAM_FREE = $RAM_FREE"
-echo -e "${PARAMETER_1} SPACE_ROOT = $SPACE_ROOT"
-echo -e "${PARAMETER_1} SPACE_ROOT_USED = $SPACE_ROOT_USED"
-echo -e "${PARAMETER_1} SPACE_ROOT_FREE = $SPACE_ROOT_FREE"
+echo -e "${PARAMETER_1}${PARAMETER_2}HOSTNAME = ${NORMAL}${PARAMETER_3}${PARAMETER_4}$HOSTNAME${NORMAL}"
+echo -e "${PARAMETER_1}${PARAMETER_2}TIMEZONE = ${NORMAL}${PARAMETER_3}${PARAMETER_4}$TIMEZONE${NORMAL}"
+echo -e "${PARAMETER_1}${PARAMETER_2}USER = ${NORMAL}${PARAMETER_3}${PARAMETER_4}$USER${NORMAL}"
+echo -e "${PARAMETER_1}${PARAMETER_2}OS = ${NORMAL}${PARAMETER_3}${PARAMETER_4}$OS${NORMAL}"
+echo -e "${PARAMETER_1}${PARAMETER_2}DATE = ${NORMAL}${PARAMETER_3}${PARAMETER_4}$DATE${NORMAL}"
+echo -e "${PARAMETER_1}${PARAMETER_2}UPTIME = ${NORMAL}${PARAMETER_3}${PARAMETER_4}$UPTIME${NORMAL}"
+echo -e "${PARAMETER_1}${PARAMETER_2}UPTIME_SEC = ${NORMAL}${PARAMETER_3}${PARAMETER_4}$UPTIME_SEC${NORMAL}"
+echo -e "${PARAMETER_1}${PARAMETER_2}IP = ${NORMAL}${PARAMETER_3}${PARAMETER_4}$IP${NORMAL}"
+echo -e "${PARAMETER_1}${PARAMETER_2}MASK = ${NORMAL}${PARAMETER_3}${PARAMETER_4}$MASK${NORMAL}"
+echo -e "${PARAMETER_1}${PARAMETER_2}GATEWAY = ${NORMAL}${PARAMETER_3}${PARAMETER_4}$GATEWAY${NORMAL}"
+echo -e "${PARAMETER_1}${PARAMETER_2}RAM_TOTAL = ${NORMAL}${PARAMETER_3}${PARAMETER_4}$RAM_TOTAL${NORMAL}"
+echo -e "${PARAMETER_1}${PARAMETER_2}RAM_USED = ${NORMAL}${PARAMETER_3}${PARAMETER_4}$RAM_USED${NORMAL}"
+echo -e "${PARAMETER_1}${PARAMETER_2}RAM_FREE = ${NORMAL}${PARAMETER_3}${PARAMETER_4}$RAM_FREE${NORMAL}"
+echo -e "${PARAMETER_1}${PARAMETER_2}SPACE_ROOT = ${NORMAL}${PARAMETER_3}${PARAMETER_4}$SPACE_ROOT${NORMAL}"
+echo -e "${PARAMETER_1}${PARAMETER_2}SPACE_ROOT_USED = ${NORMAL}${PARAMETER_3}${PARAMETER_4}$SPACE_ROOT_USED${NORMAL}"
+echo -e "${PARAMETER_1}${PARAMETER_2}SPACE_ROOT_FREE = ${NORMAL}${PARAMETER_3}${PARAMETER_4}$SPACE_ROOT_FREE${NORMAL}"
