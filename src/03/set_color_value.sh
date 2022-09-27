@@ -23,199 +23,73 @@ BGPURPLE='\033[105m'	#	${BGPURPLE}
 BGBLACK='\033[40m'		#	${BGBLACK}
 NORMAL='\e[0m'
 
+argv[0]=$1
+argv[1]=$2
+argv[2]=$3
+argv[3]=$4
 
-# for i in 1 3 
-# do
-# if [[ ${i} -eq 1 ]]
-# then 
-# PARAMETER[i]=$BGWHITE
-# fi
-
-# if [[ ${i} -eq 2 ]]
-# then 
-# PARAMETER[i]=$BGRED
-# fi
-
-# if [[ ${i} -eq 3 ]]
-# then 
-# PARAMETER[i]=$BGGREEN
-# fi
-
-# if [[ ${i} -eq 4 ]]
-# then 
-# PARAMETER[i]=$BGBLUE
-# fi
-
-# if [[ ${i} -eq 5 ]]
-# then 
-# PARAMETER[i]=$BGPURPLE
-# fi
-
-# if [[ ${i} -eq 6 ]]
-# then 
-# PARAMETER[i]=$BGBLACK
-# fi
-# done
-
-# for i in 2 4
-# do
-# if [[ ${i} -eq 1 ]]
-# then 
-# PARAMETER[i]=$WHITE
-# fi
-
-# if [[ ${i} -eq 2 ]]
-# then 
-# PARAMETER[i]=$RED
-# fi
-
-# if [[ ${i} -eq 3 ]]
-# then 
-# PARAMETER[i]=$GREEN
-# fi
-
-# if [[ ${i} -eq 4 ]]
-# then 
-# PARAMETER[i]=$BLUE
-# fi
-
-# if [[ ${i} -eq 5 ]]
-# then 
-# PARAMETER[i]=$PURPLE
-# fi
-
-# if [[ ${i} -eq 6 ]]
-# then 
-# PARAMETER[i]=$BLACK
-# fi
-# done
-
-
-
-#___________PARAMETER_1___________
-if [[ $1 -eq 1 ]]
+for i in 0 2 
+do
+if [[ ${argv[$i]} -eq 1 ]]
 then 
-PARAMETER_1=$BGWHITE
+PARAMETER[i]=$BGWHITE
 fi
 
-if [[ $1 -eq 2 ]]
+if [[ ${argv[$i]} -eq 2 ]]
 then 
-PARAMETER_1=$BGRED
+PARAMETER[i]=$BGRED
 fi
 
-if [[ $1 -eq 3 ]]
+if [[ ${argv[$i]} -eq 3 ]]
 then 
-PARAMETER_1=$BGGREEN
+PARAMETER[i]=$BGGREEN
 fi
 
-if [[ $1 -eq 4 ]]
+if [[ ${argv[$i]} -eq 4 ]]
 then 
-PARAMETER_1=$BGBLUE
+PARAMETER[i]=$BGBLUE
 fi
 
-if [[ $1 -eq 5 ]]
+if [[ ${argv[$i]} -eq 5 ]]
 then 
-PARAMETER_1=$BGPURPLE
+PARAMETER[i]=$BGPURPLE
 fi
 
-if [[ $1 -eq 6 ]]
+if [[ ${argv[$i]} -eq 6 ]]
 then 
-PARAMETER_1=$BGBLACK
+PARAMETER[i]=$BGBLACK
+fi
+done
+
+for i in 1 3
+do
+if [[ ${argv[$i]} -eq 1 ]]
+then 
+PARAMETER[i]=$WHITE
 fi
 
-#___________PARAMETER_2___________
-
-if [[ $2 -eq 1 ]]
+if [[ ${argv[$i]} -eq 2 ]]
 then 
-PARAMETER_2=$WHITE
+PARAMETER[i]=$RED
 fi
 
-if [[ $2 -eq 2 ]]
+if [[ ${argv[$i]} -eq 3 ]]
 then 
-PARAMETER_2=$RED
+PARAMETER[i]=$GREEN
 fi
 
-if [[ $2 -eq 3 ]]
+if [[ ${argv[$i]} -eq 4 ]]
 then 
-PARAMETER_2=$GREEN
+PARAMETER[i]=$BLUE
 fi
 
-if [[ $2 -eq 4 ]]
+if [[ ${argv[$i]} -eq 5 ]]
 then 
-PARAMETER_2=$BLUE
+PARAMETER[i]=$PURPLE
 fi
 
-if [[ $2 -eq 5 ]]
+if [[ ${argv[$i]} -eq 6 ]]
 then 
-PARAMETER_2=$PURPLE
+PARAMETER[i]=$BLACK
 fi
-
-if [[ $2 -eq 6 ]]
-then 
-PARAMETER_2=$BLACK
-fi
-
-#___________PARAMETER_3___________
-
-if [[ $3 -eq 1 ]]
-then 
-PARAMETER_3=$BGWHITE
-fi
-
-if [[ $3 -eq 2 ]]
-then 
-PARAMETER_3=$BGRED
-fi
-
-if [[ $3 -eq 3 ]]
-then 
-PARAMETER_3=$BGGREEN
-fi
-
-if [[ $3 -eq 4 ]]
-then 
-PARAMETER_3=$BGBLUE
-fi
-
-if [[ $3 -eq 5 ]]
-then 
-PARAMETER_3=$BGPURPLE
-fi
-
-if [[ $2 -eq 6 ]]
-then 
-PARAMETER_3=$BGBLACK
-fi
-
-
-#___________PARAMETER_4___________
-
-if [[ $4 -eq 1 ]]
-then 
-PARAMETER_4=$WHITE
-fi
-
-if [[ $4 -eq 2 ]]
-then 
-PARAMETER_4=$RED
-fi
-
-if [[ $4 -eq 3 ]]
-then 
-PARAMETER_4=$GREEN
-fi
-
-if [[ $4 -eq 4 ]]
-then 
-PARAMETER_4=$BLUE
-fi
-
-if [[ $4 -eq 5 ]]
-then 
-PARAMETER_4=$PURPLE
-fi
-
-if [[ $4 -eq 6 ]]
-then 
-PARAMETER_4=$BLACK
-fi
+done

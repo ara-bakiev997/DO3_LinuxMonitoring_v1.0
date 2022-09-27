@@ -5,7 +5,7 @@ if [[ $# == 4 ]]
     if [[ $1 -eq $2 || $3 -eq $4 ]]
         then
         echo "Error, the font and background colors of the same column must not match. Run the script again!!!"
-        exit 1
+        
         else
         chmod +x inst_supp.sh
         bash inst_supp.sh
