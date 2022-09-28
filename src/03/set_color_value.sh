@@ -17,7 +17,7 @@ BLACK='\033[30m'		#	${BLACK}		# чёрный цвет знаков
 # Цвет фона
 BGWHITE='\033[107m'		#	${BGWHITE}
 BGRED='\033[101m'		#	${BGRED}
-BGGREEN='\033[101m'		#	${BGGREEN}
+BGGREEN='\033[102m'		#	${BGGREEN}
 BGBLUE='\033[104m'		#	${BGBLUE}
 BGPURPLE='\033[105m'	#	${BGPURPLE}
 BGBLACK='\033[40m'		#	${BGBLACK}

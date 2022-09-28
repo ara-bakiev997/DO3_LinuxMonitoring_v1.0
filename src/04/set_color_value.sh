@@ -17,7 +17,7 @@ BLACK='\033[30m'		#	${BLACK}		# чёрный цвет знаков
 # Цвет фона
 BGWHITE='\033[107m'		#	${BGWHITE}
 BGRED='\033[101m'		#	${BGRED}
-BGGREEN='\033[101m'		#	${BGGREEN}
+BGGREEN='\033[102m'		#	${BGGREEN}
 BGBLUE='\033[104m'		#	${BGBLUE}
 BGPURPLE='\033[105m'	#	${BGPURPLE}
 BGBLACK='\033[40m'		#	${BGBLACK}
@@ -93,3 +93,24 @@ if [[ ${argv[$i]} -eq 6 ]]
     PARAMETER[i]=$BLACK
 fi
 done
+
+# Set default color
+if [[ ${argv[0]} == "" ]]
+    then
+    PARAMETER[0]=$BGBLACK
+fi
+
+if [[ ${argv[1]} == "" ]]
+    then
+    PARAMETER[1]=$GREEN
+fi
+
+if [[ ${argv[2]} == "" ]]
+    then
+    PARAMETER[2]=$BGBLACK
+fi
+
+if [[ ${argv[3]} == "" ]]
+    then
+    PARAMETER[3]=$PURPLE
+fi

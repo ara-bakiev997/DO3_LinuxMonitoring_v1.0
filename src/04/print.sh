@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Обозначения цветов: (1 - white, 2 - red, 3 - green, 4 - blue, 5 – purple, 6 - black)
-# Параметр 1 - это фон названий значений (HOSTNAME, TIMEZONE, USER и т.д.)
-# Параметр 2 - это цвет шрифта названий значений (HOSTNAME, TIMEZONE, USER и т.д.)
-# Параметр 3 - это фон значений (после знака '=')
-# Параметр 4 - это цвет шрифта значений (после знака '=')
-
 source set_color_value.sh $1 $2 $3 $4
 
 TIMEZONE=`timedatectl | awk '$2=="zone:" {print $3 " " $4 $5}'`
