@@ -13,7 +13,7 @@ then
     if [[ $1 =~ $re ]]
     then
         chmod +x print.sh
-        bash print.sh
+        bash print.sh $1
     else
         echo -e "\033[101m$1\e[0m - must end with a '/'"
         exit 1 
@@ -23,3 +23,4 @@ else
     exit 1
 fi
     
+
