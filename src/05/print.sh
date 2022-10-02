@@ -5,28 +5,44 @@ BGWHITE='\033[107m'
 NORMAL='\e[0m'
 
 total_number_folder=`sudo find $1 -type d | wc -l`
+top_5_folders=`sudo find $1 -type d -exec du -h {} \; | sort -rh | head -5 | cat -n | awk '{print $1 " - " $3 ", " $2}'`
+#sudo du -h $1 | sort -rh | head -5 | cat -n | awk '{print $1 " - " $3 ", " $2}' - top 5 folders 
+total_number_files=`sudo find $1 -type f -exec ls -l {} \; | wc -l`
+# `find $1 -type f | wc -l`
+configuration_files=`sudo find $1 -type f -exec ls -l {} \; | grep ".conf$" | wc -l`
+# `bash ls -la $1 | grep ".conf$" | wc -l`
+text_files=`sudo find $1 -type f -exec ls -l {} \; | grep ".txt$" | wc -l`
+# `ls -la $1 | grep ".txt$" | wc -l`
+executable_files=`sudo find $1 -type f -perm /a=x | wc -l`
+# ls -la $1 | grep "^-..x" | wc -l`
+log_files=`sudo find $1 -type f -exec ls -l {} \; | grep ".log$" | wc -l`
+archive_files=
+symbolic_links=`ls -la $1 | grep "^l" | wc -l`
+top_10_files=`sudo find $1 -type f -exec du -h {} \; | sort -rh | head -10 | cat -n | awk '{print $1 " - " $3 ", " $2}'`
+top_10_exe=`sudo find $1 -type f -perm /a=x -exec du -h {} \; | sort -rh | head -10 | cat -n | awk '{print $1 " - " $3 ", " $2}'`
 
-top_5_folders_way=`sudo du -h $1 | sort -r | head -5 | awk '{print " - " $2, $1}'`
-top_5_folders_mem=`sudo du -h $1 | sort -r | head -5 | awk '{print $1}'`
-# top_5_folders_way=`sudo du -h $1 | sort -r | head -5 | awk '{print $2}'`
-# array[0]=$top_5_folders_way
-# top_5_folders_mem=`sudo du -h $1 | sort -r | head -5 | awk '{print $1}'`
-# count_file_in_dir=`ls -la $1 | grep "^d" | wc | awk '{print $2}'`
-# top5_dir=`sudo ls -la $1 | awk $first_simbol=="d" {print}`
 
-echo -e "Total number of folders (including all nested ones) = $total_number_folder"
-echo -e "TOP 5 folders of maximum size arranged in descending order (path and size):" 
-
-# for i in "${top_5_folders_way[@]}"
-# do  
-#     echo " $i"
-    
-# done
-
-for (( i = 0; i < "$@"; i++ ))
-do 
-    echo "$i ${top_5_folders_way[@]}"
+echo "Total number of folders (including all nested ones) = $total_number_folder"
+echo "TOP 5 folders of maximum size arranged in descending order (path and size):" 
+for i in "${top_5_folders[@]}"
+do  
+    echo "$i"
 done
+
+echo "Total number of files = $total_number_files"
+echo "Number of:"
+echo "Configuration files (with the .conf extension) = $configuration_files"
+echo "Text files = $text_files"  
+echo "Executable files = $executable_files"
+echo "Log files (with the extension .log) = $log_files"
+echo "Archive files = $archive_files"  
+echo "Symbolic links = $symbolic_links"  
+echo "TOP 10 files of maximum size arranged in descending order (path, size and type):"
+for i in "${top_10_files[@]}"
+do  
+    echo "$i"
+done
+
 
 # for (( i = 0; i < 5; i++ )); do
 #         if [[ -z "${top_5_folders_way[i]}" ]]

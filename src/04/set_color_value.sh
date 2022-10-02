@@ -94,7 +94,7 @@ if [[ ${argv[$i]} -eq 6 ]]
 fi
 done
 
-# Set default color
+# Set default
 if [[ ${argv[0]} == "" ]]
     then
     PARAMETER[0]=$BGBLACK
