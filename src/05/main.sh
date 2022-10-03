@@ -1,6 +1,7 @@
 #!/bin/bash
 
 re='.*/$'
+export start=$(date +%s%N)
 
 if [[ $# != 1 ]]
 then
